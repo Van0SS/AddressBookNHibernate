@@ -5,7 +5,7 @@ namespace AddressBookTests.TestData
 {
     public static class PersonsData
     {
-        public static readonly List<Person> ListPersons
+        public static readonly List<Person> ValidPersons
             = new List<Person>()
             {
                 new Person()

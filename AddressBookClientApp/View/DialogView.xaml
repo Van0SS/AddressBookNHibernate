@@ -44,8 +44,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" Text="Name: " VerticalAlignment="Center"/>
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="Surname: "  VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Name* : " VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="Surname* : "  VerticalAlignment="Center"/>
         <TextBlock Grid.Column="0" Grid.Row="2" Text="Nickname: " VerticalAlignment="Center"/>
         <TextBlock Grid.Column="0" Grid.Row="3" Text="E-mail: " VerticalAlignment="Center"/>
         <TextBlock Grid.Column="0" Grid.Row="4" Text="Phone: " VerticalAlignment="Center"/>
@@ -53,14 +53,14 @@
         <TextBlock Grid.Column="0" Grid.Row="6" Text="Skype: " VerticalAlignment="Center"/>
         <TextBlock Grid.Column="0" Grid.Row="7" Text="Mail address: " VerticalAlignment="Center"/>
 
-        <TextBox Grid.Column="1" Grid.Row="0"  Text="{Binding EditPerson.Name}"/>
-        <TextBox Grid.Column="1" Grid.Row="1"  Text="{Binding EditPerson.Surname}"/>
-        <TextBox Grid.Column="1" Grid.Row="2"  Text="{Binding EditPerson.Nickname}"/>
-        <TextBox Grid.Column="1" Grid.Row="3"  Text="{Binding EditPerson.Email}"/>
-        <TextBox Grid.Column="1" Grid.Row="4"  Text="{Binding EditPerson.Phone}"/>
-        <TextBox Grid.Column="1" Grid.Row="5"  Text="{Binding EditPerson.ICQ}"/>
-        <TextBox Grid.Column="1" Grid.Row="6"  Text="{Binding EditPerson.Skype}"/>
-        <TextBox Grid.Column="1" Grid.Row="7"  Text="{Binding EditPerson.MailAddress}"/>
+        <TextBox Grid.Column="1" Grid.Row="0"  Text="{Binding Path=EditPerson.Name, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="1"  Text="{Binding EditPerson.Surname, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="2"  Text="{Binding EditPerson.Nickname, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="3"  Text="{Binding EditPerson.Email, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="4"  Text="{Binding EditPerson.Phone, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="5"  Text="{Binding EditPerson.ICQ, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="6"  Text="{Binding EditPerson.Skype, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="7"  Text="{Binding EditPerson.MailAddress, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
         <StackPanel Grid.ColumnSpan="2" Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Center"
                     HorizontalAlignment="Center">
             <Button Content="{Binding AcceptingText}" Command="{Binding AcceptChangesCommand}" Width="60"/>

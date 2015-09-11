@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using AddressBookTests.TestData;
+using AddressBookTests.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NHibernate;
 using PersonsDB.Domain;
 using PersonsDB.Repositories;
 
@@ -22,15 +25,31 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void Add_AddPerson_DBHaveOneRow()
         {
-            var person = PersonsData.ListPersons[0];
+            var person = PersonsData.ValidPersons[0];
             _personRepository.Add(person);
             Assert.AreEqual(1, _personRepository.RowCount());
         }
 
         [TestMethod]
+        public void Add_AddEmptyNamePerson_InvokePropertyValueException()
+        {
+            var person = new Person() {Surname = "B"};
+
+            MyAssert.Throws<PropertyValueException>( () => _personRepository.Add(person) );
+        }
+
+        [TestMethod]
+        public void Add_AddEmptySurnamePerson_InvokePropertyValueException()
+        {
+            var person = new Person() { Name = "A" };
+
+            MyAssert.Throws<PropertyValueException>(() => _personRepository.Add(person));
+        }
+
+        [TestMethod]
         public void AddMany_AddPersons_DBRowsAreEqualListCount()
         {
-            var persons = PersonsData.ListPersons;
+            var persons = PersonsData.ValidPersons;
             _personRepository.AddMany(persons);
             Assert.AreEqual(persons.Count, _personRepository.RowCount());
         }
@@ -38,7 +57,7 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void GetById_AddPerson_CanGetPerson_PersonsAreEqual()
         {
-            var person = PersonsData.ListPersons[0];
+            var person = PersonsData.ValidPersons[0];
             _personRepository.Add(person);
 
             var personDb = _personRepository.GetById(person.Id);
@@ -58,7 +77,7 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void Update_AddPerson_ChangePerson_PersonChanged()
         {
-            var person = PersonsData.ListPersons[0];
+            var person = PersonsData.ValidPersons[0];
             _personRepository.Add(person);
 
             person = _personRepository.GetById(person.Id);
@@ -72,7 +91,7 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void Remove_AddPerson_PersonDeleted()
         {
-            var person = PersonsData.ListPersons[0];
+            var person = PersonsData.ValidPersons[0];
             _personRepository.Add(person);
             Assert.AreEqual(1, _personRepository.RowCount());
 
@@ -83,7 +102,7 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void GetAll_AddPersons_PersonsNameAreEqual()
         {
-            var persons = PersonsData.ListPersons;
+            var persons = PersonsData.ValidPersons;
             _personRepository.AddMany(persons);
 
             var personsDb = _personRepository.GetAll().ToList();

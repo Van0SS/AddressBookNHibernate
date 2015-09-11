@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
 using AddressBookClientApp.Messages;
+using AddressBookClientApp.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -13,6 +15,7 @@ namespace AddressBookClientApp.ViewModel
 {
     public class DialogViewModel : ViewModelBase
     {
+
         /// <summary>
         /// The <see cref="AcceptingText" /> property's name.
         /// </summary>
@@ -82,7 +85,7 @@ namespace AddressBookClientApp.ViewModel
         private void RequestAddPersonRecieve(RequestAddPersonMessage message)
         {
             AcceptingText = "Add";
-            EditPerson = new Person();
+            EditPerson = new Person() {Name = "Name", Surname = "Surname"};
         }
 
         private void AcceptChangesCommandCommandExecute()

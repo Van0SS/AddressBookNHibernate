@@ -96,7 +96,6 @@
     <Compile Include="Messages\RequestAddPersonMessage.cs" />
     <Compile Include="Messages\SendPersonToEditMessage.cs" />
     <Compile Include="Messages\ShowDialogViewMessages.cs" />
-    <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataPersonsDesign.cs" />
     <Compile Include="ViewModel\DialogViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
