@@ -1,7 +1,10 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
+using PersonsDB.DBException;
 using PersonsDB.Domain;
 using PersonsDB.Repositories;
 
@@ -40,7 +43,21 @@ namespace AddressBookClientApp.Model
 
         public ICollection<Person> GetAll()
         {
-            return _personRepository.GetAll();
+            try
+            {
+                return _personRepository.GetAll();
+            }
+            catch (Exception exception)
+            {
+                if (exception is ReadDBException)
+                {
+                    NHibernateHelper.DeleteDB();
+                    throw new ReadDBException("Can't read entries in DataBase, DB is recreated.", exception);
+                }
+                throw;
+            }
+            
         }
+
     }
 }

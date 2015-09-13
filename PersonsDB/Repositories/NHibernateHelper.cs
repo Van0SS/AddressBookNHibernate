@@ -8,12 +8,16 @@ using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
+using PersonsDB.DBException;
 using PersonsDB.Domain;
 
 namespace PersonsDB.Repositories
 {
     public class NHibernateHelper
     {
+        /// <summary>
+        /// Путь к файлу БД.
+        /// </summary>
         private static string DbFile = "AddressBook.sqlite";
 
         private static ISessionFactory _sessionFactory;
@@ -27,10 +31,11 @@ namespace PersonsDB.Repositories
                     _sessionFactory = Fluently.Configure()
                         .Database(SQLiteConfiguration.Standard
                             .UsingFile(DbFile)
-                            .ShowSql())
+                            .ShowSql() // Показывать запросы.
+                            )
                         .Mappings(m => m
                             .FluentMappings.AddFromAssemblyOf<Person>())
-                        .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
+                        .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true)) 
                         .BuildSessionFactory();
                 }
                 return _sessionFactory;
@@ -44,8 +49,16 @@ namespace PersonsDB.Repositories
 
         public static void DeleteDB()
         {
-            if (File.Exists(DbFile))
+            try
+            {
                 File.Delete(DbFile);
+            }
+            catch (IOException exception)
+            {
+                throw new DeleteDBException("Can't delete DB", exception);
+            }
+                
+            // Обнулить сессию, чтобы при создании новой сессии создалась новая БД.
             _sessionFactory = null;
         }
     }

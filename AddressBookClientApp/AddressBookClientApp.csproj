@@ -90,12 +90,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Messages\EditedPersonMessage.cs" />
-    <Compile Include="Messages\HideDialogViewMessage.cs" />
-    <Compile Include="Messages\PersonToAddMessage.cs" />
-    <Compile Include="Messages\RequestAddPersonMessage.cs" />
-    <Compile Include="Messages\SendPersonToEditMessage.cs" />
-    <Compile Include="Messages\ShowDialogViewMessages.cs" />
+    <Compile Include="Message\EditedPersonMessage.cs" />
+    <Compile Include="Message\HideDialogViewMessage.cs" />
+    <Compile Include="Message\PersonToAddMessage.cs" />
+    <Compile Include="Message\RequestAddPersonMessage.cs" />
+    <Compile Include="Message\SendPersonToEditMessage.cs" />
+    <Compile Include="Message\ShowDialogViewMessages.cs" />
     <Compile Include="Model\DataPersonsDesign.cs" />
     <Compile Include="ViewModel\DialogViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

@@ -7,6 +7,9 @@ using System.Text.RegularExpressions;
 
 namespace PersonsDB.Domain
 {
+    /// <summary>
+    /// Контактные данные человека.
+    /// </summary>
     public class Person : ICloneable
     {
         public virtual Guid Id { get; set; }
@@ -65,6 +68,7 @@ namespace PersonsDB.Domain
         }
 
         private string _phone;
+
         public virtual string Phone {
             get { return _phone; }
             set
@@ -115,6 +119,9 @@ namespace PersonsDB.Domain
             }
         }
 
+        /// <summary>
+        /// Создание копии Person.
+        /// </summary>
         public virtual object Clone()
         {
             return this.MemberwiseClone();

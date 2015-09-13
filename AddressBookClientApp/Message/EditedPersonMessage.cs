@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
 using PersonsDB.Domain;
 
-namespace AddressBookClientApp.Messages
+namespace AddressBookClientApp.Message
 {
+    /// <summary>
+    /// Сообщение содержащее отредактированные данные.
+    /// </summary>
     public class EditedPersonMessage : MessageBase
     {
         public Person Person { get; private set; }

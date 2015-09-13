@@ -25,7 +25,7 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void Add_AddPerson_DBHaveOneRow()
         {
-            var person = PersonsData.ValidPersons[0];
+            var person = PersonsTestData.ValidPersons[0];
             _personRepository.Add(person);
             Assert.AreEqual(1, _personRepository.RowCount());
         }
@@ -49,7 +49,7 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void AddMany_AddPersons_DBRowsAreEqualListCount()
         {
-            var persons = PersonsData.ValidPersons;
+            var persons = PersonsTestData.ValidPersons;
             _personRepository.AddMany(persons);
             Assert.AreEqual(persons.Count, _personRepository.RowCount());
         }
@@ -57,7 +57,7 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void GetById_AddPerson_CanGetPerson_PersonsAreEqual()
         {
-            var person = PersonsData.ValidPersons[0];
+            var person = PersonsTestData.ValidPersons[0];
             _personRepository.Add(person);
 
             var personDb = _personRepository.GetById(person.Id);
@@ -77,7 +77,7 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void Update_AddPerson_ChangePerson_PersonChanged()
         {
-            var person = PersonsData.ValidPersons[0];
+            var person = PersonsTestData.ValidPersons[0];
             _personRepository.Add(person);
 
             person = _personRepository.GetById(person.Id);
@@ -91,7 +91,7 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void Remove_AddPerson_PersonDeleted()
         {
-            var person = PersonsData.ValidPersons[0];
+            var person = PersonsTestData.ValidPersons[0];
             _personRepository.Add(person);
             Assert.AreEqual(1, _personRepository.RowCount());
 
@@ -102,7 +102,7 @@ namespace AddressBookTests.AddressBookDBTests
         [TestMethod]
         public void GetAll_AddPersons_PersonsNameAreEqual()
         {
-            var persons = PersonsData.ValidPersons;
+            var persons = PersonsTestData.ValidPersons;
             _personRepository.AddMany(persons);
 
             var personsDb = _personRepository.GetAll().ToList();

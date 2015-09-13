@@ -56,7 +56,7 @@
         <TextBox Grid.Column="1" Grid.Row="0"  Text="{Binding Path=EditPerson.Name, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="1" Grid.Row="1"  Text="{Binding EditPerson.Surname, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="1" Grid.Row="2"  Text="{Binding EditPerson.Nickname, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Grid.Column="1" Grid.Row="3"  Text="{Binding EditPerson.Email, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="3"  Text="{Binding EditPerson.Email, ValidatesOnExceptions=True, UpdateSourceTrigger=LostFocus}"/>
         <TextBox Grid.Column="1" Grid.Row="4"  Text="{Binding EditPerson.Phone, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="1" Grid.Row="5"  Text="{Binding EditPerson.ICQ, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="1" Grid.Row="6"  Text="{Binding EditPerson.Skype, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>

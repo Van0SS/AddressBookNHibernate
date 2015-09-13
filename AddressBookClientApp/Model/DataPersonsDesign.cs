@@ -6,6 +6,9 @@ using PersonsDB.Domain;
 
 namespace AddressBookClientApp.Model
 {
+    /// <summary>
+    /// Фейковые данные для отображения в дизайнере.
+    /// </summary>
     public class DataPersonsDesign : IDataPersons
     {
         public void Add(Person person)

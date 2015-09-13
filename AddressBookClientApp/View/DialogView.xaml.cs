@@ -10,7 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using AddressBookClientApp.Messages;
+using AddressBookClientApp.Message;
 using GalaSoft.MvvmLight.Messaging;
 
 namespace AddressBookClientApp.View
@@ -23,8 +23,11 @@ namespace AddressBookClientApp.View
         public DialogView(Window owner)
         {
             InitializeComponent();
+
+            // Запись главного окна.
             Owner = owner;
 
+            // При попытке закрыть, скрывать форму.
             Closing += (s, e) =>
             {
                 e.Cancel = true;

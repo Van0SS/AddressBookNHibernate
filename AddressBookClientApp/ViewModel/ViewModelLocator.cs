@@ -43,6 +43,7 @@ namespace AddressBookClientApp.ViewModel
                 SimpleIoc.Default.Register<IDataPersons, DataPersonsDB>();
             }
 
+
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
@@ -52,16 +53,6 @@ namespace AddressBookClientApp.ViewModel
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
-        }
-
-        public DialogViewModel Dialog
-        {
-            get { return ServiceLocator.Current.GetInstance<DialogViewModel>(); }
-        }
-        
-        public static void Cleanup()
-        {
-            // TODO Clear the ViewModels
         }
     }
 }

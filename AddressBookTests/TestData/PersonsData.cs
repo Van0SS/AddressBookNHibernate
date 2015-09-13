@@ -3,8 +3,11 @@ using PersonsDB.Domain;
 
 namespace AddressBookTests.TestData
 {
-    public static class PersonsData
+    public static class PersonsTestData
     {
+        /// <summary>
+        /// Верные контактные данные.
+        /// </summary>
         public static readonly List<Person> ValidPersons
             = new List<Person>()
             {

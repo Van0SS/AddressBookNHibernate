@@ -6,6 +6,9 @@ using PersonsDB.Domain;
 
 namespace AddressBookClientApp.Model
 {
+    /// <summary>
+    /// Данные для приложения.
+    /// </summary>
     public interface IDataPersons
     {
         void Add(Person person);

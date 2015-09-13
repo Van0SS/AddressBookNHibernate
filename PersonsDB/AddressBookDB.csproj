@@ -59,6 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBException\DeleteDBException.cs" />
+    <Compile Include="DBException\ReadDBError.cs" />
     <Compile Include="Domain\IPersonRepository.cs" />
     <Compile Include="Domain\Person.cs" />
     <Compile Include="Mappings\PersonMap.cs" />

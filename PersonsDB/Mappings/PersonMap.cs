@@ -7,10 +7,13 @@ using PersonsDB.Domain;
 
 namespace PersonsDB.Mappings
 {
+    /// <summary>
+    /// Маппинг для <see cref="Person"/> через Fluent NHibernate.
+    /// </summary>
     class PersonMap : ClassMap<Person>
     {
         public PersonMap()
-        {
+        { 
             Id(x => x.Id);
 
             Map(x => x.Name)
@@ -25,7 +28,7 @@ namespace PersonsDB.Mappings
 
             Map(x => x.Email);
 
-            Map(x => x.Phone).Length(20); // Максимальная длина номер 20 (на всякий)
+            Map(x => x.Phone).Length(20); // Максимальная длина номер 20 (на всякий).
 
             Map(x => x.ICQ).Length(9); // Вряд ли мэйлру уже больше сделает.
 
